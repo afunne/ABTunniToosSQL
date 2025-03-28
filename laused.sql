@@ -20,6 +20,7 @@ Id int NOT NULL primary key,
 Gender nvarchar(10) not null
 )
 
+-- tabeli Person loomine
 create table Person
 (
 Id int not null primary key,
@@ -34,11 +35,11 @@ values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
 
---- manipuleerib tabeli omadusi
+--- manipuleerib tabeli omadusi.
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
--- ?
+-- sisestab teavet nimelisse tabelisse
 insert into Person (Id, Name, Email, GenderId)
 values (1, 'Supermees', 's@s.com', 2)
 insert into Person (Id, Name, Email, GenderId)
@@ -61,9 +62,10 @@ select * from Person
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- paneb rohkem infot „Gender“
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
+
 -- lisame võõrvõtme uuesti
 alter table Person
 add constraint DF_Person_GenderId
