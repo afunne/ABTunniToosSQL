@@ -108,17 +108,18 @@ add City nvarchar(25)
 -- näitab kõike linna konkreetse nime all (Gotham pole tabelis, :_<)
 select * from Person where City = 'Gotham'
 
+
 -- kõik, kes ei ela Gothamis
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+-- näitab meile kõike tabelist tingimustega
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+--- see näitab kõike tabelist, kus linn algab esimese tähega „n“ ja kus e-posti aadress on „@“
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
