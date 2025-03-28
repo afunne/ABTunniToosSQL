@@ -113,49 +113,49 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+-- näitab meile kõike tabelist tingimustega
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+--- see näitab kõike tabelist, kus linn algab esimese tähega „n“ ja kus e-posti aadress on „@“
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
--- ?
+-- näitab meile, kus emial ei ole @
 select * from Person where Email not like '%@%'
 
 --- näitab, kelle on emailis ees ja peale @-märki
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+-- näitab meile, kus nimi on nagu '[^WAS]%'
 select * from Person where Name like '[^WAS]%'
---- ?
+---  
 select * from Person where (City = 'Gotham' or City = 'New York')
 and Age >= 40
 
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+--- näitab tabelist küsitud linn ja vanus
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+--- näitab top 50
 select top 50 percent * from Person
---?
+-- Funktsioon CAST() teisendab väärtuse (mis tahes tüüpi) määratud andmetüübiks.
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
---?
+--teeb kokkuvõtte
 select sum(cast(Age as int)) from Person
 
---?
+-- teeb minimaalse
 select min(cast(Age as int)) from Person
 
---?
+-- teeb maksimalse
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
