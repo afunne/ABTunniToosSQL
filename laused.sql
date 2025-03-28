@@ -20,6 +20,7 @@ Id int NOT NULL primary key,
 Gender nvarchar(10) not null
 )
 
+-- tabeli Person loomine
 create table Person
 (
 Id int not null primary key,
@@ -57,13 +58,14 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- eemaldab piirangu „tblPerson_GenderId_FK“
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- paneb rohkem infot „Gender“
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
+
 -- lisame võõrvõtme uuesti
 alter table Person
 add constraint DF_Person_GenderId
