@@ -78,7 +78,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----lisab uue veeru koos andmetüübiga
+--- lisab uue veeru koos andmetüübiga
 alter table Person
 add Age nvarchar(10)
 
@@ -105,9 +105,8 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+-- näitab kõike linna konkreetse nime all (Gotham pole tabelis, :_<)
 select * from Person where City = 'Gotham'
-
 
 -- kõik, kes ei ela Gothamis
 select * from Person where City <> 'Gotham'
