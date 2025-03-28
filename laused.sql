@@ -78,7 +78,7 @@ select * from Gender
 insert into Person (Id, Name, Email)
 values (8, 'Test', 'Test')
 
----?
+---lisab uue veeru koos andmetüübiga
 alter table Person
 add Age nvarchar(10)
 
